@@ -230,7 +230,13 @@ public class CommandHandler {
                System.exit(0x00001);
            }
            });
+        commandMap.put("embed", (event, args) -> {
+            if (event.getAuthor().getStringID() == "118455061222260736") {
+                BotUtils.sendMessage(event.getChannel(), "Message from Everett", args.toString(), event, true);
+            }
+        });
            }
+
 
 
 
