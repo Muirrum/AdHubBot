@@ -11,7 +11,7 @@ import sx.blah.discord.util.RequestBuffer;
 public class BotUtils {
     
     static String RECOG_NAME = "AdHub Bot";
-    static String PREFIX = "!@";
+    static String PREFIX = "/";
     
     static IDiscordClient getBuiltDiscordClient(String token) {
         
