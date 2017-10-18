@@ -13,6 +13,7 @@ public class Main {
         
          IDiscordClient cli = BotUtils.getBuiltDiscordClient(args[0]);
 
+
         cli.getDispatcher().registerListener(new CommandHandler());
         cli.login();
         
