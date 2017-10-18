@@ -29,6 +29,11 @@ public class CommandHandler {
         commandMap.put("ping", (event, args) -> {
             BotUtils.sendMessage(event.getChannel(), "pong", "Pong!", event, true);
         });
+        commandMap.put("embed", (event, args) -> {
+            if (event.getAuthor().getStringID() == "118455061222260736") {
+                BotUtils.sendMessage(event.getChannel(), "Message from Everett", args.toString(), event, true);     
+            }
+        });
 
     }
 
