@@ -3,6 +3,8 @@ import sx.blah.discord.api.events.EventSubscriber;
 import sx.blah.discord.handle.impl.events.guild.GuildCreateEvent;
 import sx.blah.discord.handle.impl.events.guild.channel.message.MessageReceivedEvent;
 import sx.blah.discord.handle.impl.obj.Embed;
+import sx.blah.discord.handle.obj.IUser;
+import sx.blah.discord.handle.obj.Permissions;
 import sx.blah.discord.util.EmbedBuilder;
 import sx.blah.discord.util.MissingPermissionsException;
 import sx.blah.discord.util.RequestBuffer;
@@ -230,10 +232,18 @@ public class CommandHandler {
                System.exit(0x00001);
            }
            });
-        commandMap.put("embed", (event, args) -> {
-            if (event.getAuthor().getStringID() == "118455061222260736") {
-                BotUtils.sendMessage(event.getChannel(), "Message from Everett", args.toString(), event, true);
+        commandMap.put("sendEmbed", (event, args) -> {
+            if (event.getAuthor().getStringID().equals("118455061222260736")) {
+                BotUtils.sendMessage(event.getChannel(), args.toString(), "Message from Everett", event,
+                 true);
             }
+        });
+        commandMap.put("ban", (event, args) -> {
+           if (event.getAuthor().getPermissionsForGuild(event.getGuild()).contains(Permissions.BAN) || event.getAuthor().getStringID().equals("118455061222260736")) {
+              List<IUser> mentionArray = event.getMessage().getMentions();
+
+              event.getGuild().banUser(mentionArray.get(0), args.toString());
+           }
         });
            }
 
