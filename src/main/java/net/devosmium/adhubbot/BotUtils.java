@@ -1,5 +1,6 @@
 package net.devosmium.adhubbot;
 
+import sun.plugin2.message.Message;
 import sx.blah.discord.api.ClientBuilder;
 import sx.blah.discord.api.IDiscordClient;
 import sx.blah.discord.api.internal.json.objects.BanObject;
@@ -14,7 +15,7 @@ import sx.blah.discord.util.EmbedBuilder;
 import sx.blah.discord.util.RequestBuffer;
 
 public class BotUtils {
-    
+    //TODO Implement Modlog and Advanced Permissions
     static String RECOG_NAME = "AdHub Bot";
     static String PREFIX = "/";
     static String OWNER_RECOG_NAME = "Dr. Everett Mann";
@@ -65,5 +66,15 @@ public class BotUtils {
     static void unMuteUser(IUser user, IGuild guild) {
         IRole mutedRole = guild.getRolesByName(BotUtils.RECOG_NAME + "-Mute").get(0);
         user.removeRole(mutedRole);
+    }
+    static void addToModlog(IUser mod, IUser victim, ModlogType type, MessageReceivedEvent event, String reason) {
+        switch (type) {
+            case BAN:
+                sendMessage(event.getGuild().getChannelsByName("mod-log").get(0), "User " + victim + " was" +
+                        " banned by " + mod + " with reason " + reason, "CASE: BAN", event, true);
+            case KICK:
+                sendMessage(event.getGuild().getChannelsByName("mod-log").get(0), "User " + victim + " was" +
+                        " kicked by " + mod + " with reason " + reason, "CASE: KICK", event, true);
+        }
     }
 }

