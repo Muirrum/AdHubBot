@@ -234,7 +234,7 @@ public class CommandHandler {
            });
         commandMap.put("sendEmbed", (event, args) -> {
             if (event.getAuthor().getStringID().equals("118455061222260736")) {
-                BotUtils.sendMessage(event.getChannel(), args.toString(), "Message from Everett", event,
+                BotUtils.sendMessage(event.getChannel(), args.toString(), "Message from " + BotUtils.OWNER_RECOG_NAME, event,
                  true);
             }
         });
@@ -263,9 +263,9 @@ public class CommandHandler {
                     BotUtils.sendMessage(event.getChannel(), event.getAuthor().mention() + "Watch your language!",
                             "Warning", event, false);
                 } catch (MissingPermissionsException e) {
-                    System.out.println("Missing Permission DELETE_MESSAGE in guild with ID "
+                    System.out.println("Missing Permission MANAGE_MESSAGEs in guild with ID "
                             + event.getGuild().getStringID() + " and name " + event.getGuild().getName());
-                    BotUtils.sendMessage(event.getChannel(), "I'm missing the permission DELETE_MESSAGE in" +
+                    BotUtils.sendMessage(event.getChannel(), "I'm missing the permission MANAGE_MESSAGES in" +
                             " this guild, please ask a moderator to add it to me.", "Error", event, false);
                 }
             }

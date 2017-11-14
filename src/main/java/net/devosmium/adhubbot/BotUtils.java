@@ -12,6 +12,7 @@ public class BotUtils {
     
     static String RECOG_NAME = "AdHub Bot";
     static String PREFIX = "/";
+    static String OWNER_RECOG_NAME = "Dr. Everett Mann";
     
     static IDiscordClient getBuiltDiscordClient(String token) {
         
