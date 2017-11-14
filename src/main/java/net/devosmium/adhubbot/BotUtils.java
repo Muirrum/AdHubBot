@@ -2,6 +2,7 @@ package net.devosmium.adhubbot;
 
 import sx.blah.discord.api.ClientBuilder;
 import sx.blah.discord.api.IDiscordClient;
+import sx.blah.discord.api.internal.json.objects.BanObject;
 import sx.blah.discord.handle.impl.events.guild.GuildCreateEvent;
 import sx.blah.discord.handle.impl.events.guild.channel.message.MessageReceivedEvent;
 import sx.blah.discord.handle.obj.IChannel;
@@ -54,7 +55,15 @@ public class BotUtils {
     
     }
     static void muteUser(IUser user, IGuild guild) {
+        try {
+            IRole mutedRole = guild.getRolesByName(BotUtils.RECOG_NAME + "-Mute").get(0);
+            user.addRole(mutedRole);
+        } catch(DiscordException e) {
+            e.printStackTrace();
+        }
+    }
+    static void unMuteUser(IUser user, IGuild guild) {
         IRole mutedRole = guild.getRolesByName(BotUtils.RECOG_NAME + "-Mute").get(0);
-        user.addRole(mutedRole);
+        user.removeRole(mutedRole);
     }
 }

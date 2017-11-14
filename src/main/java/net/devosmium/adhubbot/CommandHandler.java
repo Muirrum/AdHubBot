@@ -251,6 +251,18 @@ public class CommandHandler {
                BotUtils.muteUser(mentionList.get(0), event.getGuild());
            }
         });
+        commandMap.put("unmute", (event, args) -> {
+           if (event.getAuthor().getPermissionsForGuild(event.getGuild()).contains(Permissions.MANAGE_SERVER) || event.getAuthor().getStringID().equals("118455061222260736")) {
+               List<IUser> mentionList = event.getMessage().getMentions();
+               BotUtils.unMuteUser(mentionList.get(0), event.getGuild());
+           }
+        });
+        commandMap.put("unban", (event, args) -> {
+            if (event.getAuthor().getPermissionsForGuild(event.getGuild()).contains(Permissions.BAN) || event.getAuthor().getStringID().equals("118455061222260736")) {
+                List<IUser> mentionArray = event.getMessage().getMentions();
+                event.getGuild().pardonUser(mentionArray.get(0).getLongID());
+            }
+        });
            }
 
 
