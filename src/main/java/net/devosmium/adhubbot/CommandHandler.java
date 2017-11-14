@@ -245,6 +245,12 @@ public class CommandHandler {
               event.getGuild().banUser(mentionArray.get(0), args.toString());
            }
         });
+        commandMap.put("mute", (event, args) -> {
+           if (event.getAuthor().getPermissionsForGuild(event.getGuild()).contains(Permissions.MANAGE_SERVER) || event.getAuthor().getStringID().equals("118455061222260736")) {
+               List<IUser> mentionList = event.getMessage().getMentions();
+               BotUtils.muteUser(mentionList.get(0), event.getGuild());
+           }
+        });
            }
 
 
