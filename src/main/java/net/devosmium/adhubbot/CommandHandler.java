@@ -321,10 +321,19 @@ public class CommandHandler {
         argsList.remove(0); // Remove the command
 
         // Instead of delegating the work to a switch, automatically do it via calling the mapping if it exists
-
-        if (commandMap.containsKey(commandStr))
-            commandMap.get(commandStr).runCommand(event, argsList);
-
+        boolean testMode = true;
+        if (testMode) {
+            if (event.getAuthor().getStringID().equals("118455061222260736")) {
+                if (commandMap.containsKey(commandStr))
+                    commandMap.get(commandStr).runCommand(event, argsList);
+            } else {
+                BotUtils.sendMessage(event.getChannel(), "Testing mode is engaged. Please" +
+                        " hold.", "Sorry!", event, false);
+            }
+        } else {
+            if (commandMap.containsKey(commandStr))
+                commandMap.get(commandStr).runCommand(event, argsList);
+        }
 
     }
 }
