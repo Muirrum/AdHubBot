@@ -1,6 +1,5 @@
 package net.devosmium.adhubbot;
 
-import sun.plugin2.message.Message;
 import sx.blah.discord.api.ClientBuilder;
 import sx.blah.discord.api.IDiscordClient;
 import sx.blah.discord.api.internal.json.objects.BanObject;
