@@ -269,6 +269,7 @@ public class CommandHandler {
                List<IChannel> channelMentionList = event.getMessage().getChannelMentions();
                EnumSet<Permissions> addPerms = EnumSet.of(Permissions.READ_MESSAGES, Permissions.SEND_MESSAGES);
                event.getGuild().getChannelByID(channelMentionList.get(0).getLongID()).overrideUserPermissions(event.getAuthor(), addPerms, null);
+               BotUtils.sendMessage(event.getChannel(), "Overrode Channel Permissions for" + channelMentionList.get(0), "Success!", event, true);
 
            }
         });
