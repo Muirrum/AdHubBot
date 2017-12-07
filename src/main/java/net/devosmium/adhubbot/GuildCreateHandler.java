@@ -27,7 +27,6 @@ public class GuildCreateHandler {
                 channelList.get(i).overrideRolePermissions(mutedRole, allowMutedPermissions, mutedPermissions);
            }
            SQLiteUtils.createServerSettingsTable(event.getGuild().getStringID());
-           
 
         } catch (DiscordException e) {
             e.printStackTrace();
