@@ -74,6 +74,8 @@ public class BotUtils {
             case KICK:
                 sendMessage(event.getGuild().getChannelsByName("mod-log").get(0), "User " + victim + " was" +
                         " kicked by " + mod + " with reason " + reason, "CASE: KICK", event, true);
+            case MUTE:
+
         }
     }
 }

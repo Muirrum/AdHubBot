@@ -6,5 +6,6 @@ package net.devosmium.adhubbot;
 public enum ModlogType {
     BAN,
     KICK,
-    MUTE
+    MUTE,
+    WARN
 }
