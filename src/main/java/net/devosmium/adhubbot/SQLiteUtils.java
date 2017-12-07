@@ -1,6 +1,8 @@
 package net.devosmium.adhubbot;
 
 import java.sql.*;
+import java.util.Calendar;
+import java.util.Date;
 
 public class SQLiteUtils {
 
@@ -47,6 +49,7 @@ public class SQLiteUtils {
         try(Connection conn = DriverManager.getConnection(url)) {
             Statement stmt = conn.createStatement();
             stmt.execute(sql);
+            System.out.println("Successfully Initialized the Partner Applications Database at" + Calendar.getInstance().getTime().toString());
         } catch (SQLException e) {
             e.printStackTrace();
         }

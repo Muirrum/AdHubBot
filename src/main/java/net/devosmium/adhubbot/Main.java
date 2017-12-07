@@ -14,6 +14,8 @@ public class Main {
         if(f.exists() && !f.isDirectory()) {
             SQLiteUtils.createDB();
         }
+        // Create Partner Application Table
+        SQLiteUtils.createPartnerApplicationsTable();
         //Initialize Client
         if (args.length != 1) {
             System.out.println("Please put the discord app token as ");
