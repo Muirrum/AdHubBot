@@ -2,7 +2,6 @@ package net.devosmium.adhubbot;
 
 import sx.blah.discord.api.events.EventSubscriber;
 import sx.blah.discord.handle.impl.events.guild.GuildCreateEvent;
-import sx.blah.discord.handle.impl.obj.Guild;
 import sx.blah.discord.handle.obj.IChannel;
 import sx.blah.discord.handle.obj.IRole;
 import sx.blah.discord.handle.obj.Permissions;
@@ -27,6 +26,8 @@ public class GuildCreateHandler {
            for (int i = 0; i < channelList.size(); i++) {
                 channelList.get(i).overrideRolePermissions(mutedRole, allowMutedPermissions, mutedPermissions);
            }
+           SQLiteUtils.createServerSettingsTable(event.getGuild().getStringID());
+           
 
         } catch (DiscordException e) {
             e.printStackTrace();
