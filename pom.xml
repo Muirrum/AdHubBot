@@ -7,7 +7,7 @@
     <!-- You should edit these to your case -->
     <groupId>net.devosmium.discord</groupId>
     <artifactId>adhubbot</artifactId>
-    <version>0.2.1-SNAPSHOT</version>
+    <version>0.3.1</version>
 
     <properties>
         <maven.compiler.target>1.8</maven.compiler.target>
