@@ -76,6 +76,11 @@ public class CommandHandler {
 
            }
         });
+        commandMap.put("apply", ((event, args) ->  {
+           BotUtils.sendMessage(event.getChannel(), "Information has been sent to your DMs", "Check DMs", event, true);
+            BotUtils.sendMessage(event.getAuthor().getOrCreatePMChannel(), "Please reply with the server ID",
+                    "Please provide the Server ID", event, true);
+        }));
            }
 
 
