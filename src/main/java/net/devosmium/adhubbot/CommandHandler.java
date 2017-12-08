@@ -78,11 +78,11 @@ public class CommandHandler {
         });
         commandMap.put("apply", ((event, args) ->  {
             IChannel channel = event.getChannel();
-            if (args.size() != 2) {
+            if (args.size() != 3) {
                 BotUtils.sendMessage(channel, "Please provide the following information in this order as arguments for this command. Invite Code and your " +
                         "Server Name", "Please provide more information", event, false);
 
-            } else if(args.size() == 2) {
+            } else if(args.size() == 3) {
                 BotUtils.sendMessage(channel,args.get(0), args.get(0), event, true);
                 String serverName = args.remove(0);
                 BotUtils.sendMessage(channel, serverName, serverName, event, true);
