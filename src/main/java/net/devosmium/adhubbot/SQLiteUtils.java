@@ -42,9 +42,9 @@ public class SQLiteUtils {
         String sql = "CREATE TABLE IF NOT EXISTS partnerApplications (\n" +
                 " id integer PRIMARY KEY, \n" +
                 " serverName text NOT NULL, \n" +
-                " applicantName text NOT NULL \n" +
-                " applicantId text NOT NULL \n" +
-                " serverCode text NOT NULL \n" +
+                " applicantName text NOT NULL, \n" +
+                " applicantId text NOT NULL, \n" +
+                " serverCode text NOT NULL, \n" +
                 ");";
         try(Connection conn = DriverManager.getConnection(url)) {
             Statement stmt = conn.createStatement();
