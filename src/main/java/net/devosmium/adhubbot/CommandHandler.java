@@ -77,9 +77,17 @@ public class CommandHandler {
            }
         });
         commandMap.put("apply", ((event, args) ->  {
-           BotUtils.sendMessage(event.getChannel(), "Information has been sent to your DMs", "Check DMs", event, true);
-            BotUtils.sendMessage(event.getAuthor().getOrCreatePMChannel(), "Please reply with the server ID",
-                    "Please provide the Server ID", event, true);
+            IChannel channel = event.getChannel();
+            if (args.size() != 5) {
+                BotUtils.sendMessage(channel, "Please provide the following information in this order as arguments for this command. Invite Code and your " +
+                        "Server Name", "Please provide more information", event, false);
+
+            } else if(args.size() == 5) {
+                BotUtils.sendMessage(channel,args.get(0), args.get(0), event, true);
+                String serverName = args.remove(0);
+                BotUtils.sendMessage(channel, serverName, serverName, event, true);
+                //Application.createApplication(event.getAuthor().getLongID(),  );
+            }
         }));
            }
 
