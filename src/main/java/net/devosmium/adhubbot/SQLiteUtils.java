@@ -44,7 +44,7 @@ public class SQLiteUtils {
                 " serverName text NOT NULL, \n" +
                 " applicantName text NOT NULL, \n" +
                 " applicantId text NOT NULL, \n" +
-                " serverCode text NOT NULL, \n" +
+                " serverCode text NOT NULL \n" +
                 ");";
         try(Connection conn = DriverManager.getConnection(url)) {
             Statement stmt = conn.createStatement();
