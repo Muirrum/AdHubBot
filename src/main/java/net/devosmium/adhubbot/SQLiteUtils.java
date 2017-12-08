@@ -40,7 +40,7 @@ public class SQLiteUtils {
     public static void createPartnerApplicationsTable() {
         String url = "jdbc:sqlite:./data.db";
         String sql = "CREATE TABLE IF NOT EXISTS partnerApplications (\n" +
-                " id integer PRIMARY KEY \n" +
+                " id integer PRIMARY KEY, \n" +
                 " serverName text NOT NULL, \n" +
                 " applicantName text NOT NULL \n" +
                 " applicantId text NOT NULL \n" +
