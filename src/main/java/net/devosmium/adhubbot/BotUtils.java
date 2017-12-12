@@ -66,6 +66,15 @@ public class BotUtils {
         IRole mutedRole = guild.getRolesByName(BotUtils.RECOG_NAME + "-Mute").get(0);
         user.removeRole(mutedRole);
     }
+
+    /**
+     *
+     * @param mod User who executed the command
+     * @param victim User who had the command executed on them
+     * @param type Is it a warn, mute, kick, ban, etc
+     * @param event The event
+     * @param reason The reason for the mod action
+     */
     static void addToModlog(IUser mod, IUser victim, ModlogType type, MessageReceivedEvent event, String reason) {
         switch (type) {
             case BAN:

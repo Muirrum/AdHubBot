@@ -5,7 +5,6 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class SQLiteUtils {
-
     public static void createDB() {
         String url = "jdbc:sqlite:./data.db";
 
@@ -69,6 +68,15 @@ public class SQLiteUtils {
             e.printStackTrace();
         }
     }
+
+    /**
+     *
+     * @param id
+     * @param serverName
+     * @param applicant
+     * @param applicantId
+     * @param inviteCode
+     */
 
     public static void applyForPartner(int id, String serverName, String applicant, String applicantId, String inviteCode) {
         String url = "jdbc:sqlite:./data.db";
