@@ -27,6 +27,7 @@ public class Main {
 
         cli.getDispatcher().registerListener(new CommandHandler());
         cli.getDispatcher().registerListener(new GuildCreateHandler());
+        cli.getDispatcher().registerListener(new SecurityCommands());
         cli.login();
         
         
