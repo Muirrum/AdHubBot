@@ -27,11 +27,11 @@ public class SecurityUtils {
 
     public static PermLevel getUserPermLevel(MessageReceivedEvent event) {
         PermLevel perms = null;
-        if (event.getAuthor().getRolesForGuild(event.getGuild()).contains(event.getGuild().getRolesByName("Security").get(0))) {
+        if (event.getAuthor().getRolesForGuild(event.getGuild()).contains(event.getGuild().getRolesByName("DC | Moderators"))) {
             perms = PermLevel.MOD;
         } else if (event.getAuthor().getRolesForGuild(event.getGuild()).contains(event.getGuild().getRolesByName("AdHub | Board of Directors").get(0))) {
             perms = PermLevel.BOARD;
-        } else if (event.getAuthor().getRolesForGuild(event.getGuild()).contains(event.getGuild().getRolesByName("Head of Security"))) {
+        } else if (event.getAuthor().getRolesForGuild(event.getGuild()).contains(event.getGuild().getRolesByName("DC | Admin"))) {
             perms = PermLevel.ADMIN;
         } else {
             perms = PermLevel.USER;
