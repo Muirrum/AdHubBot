@@ -94,6 +94,9 @@ public class CommandHandler {
                 switch (userPerms) {
                     case ADMIN:
                         BotUtils.sendMessage(event.getChannel(), "It works!", "Permissions Test Successful!", event, true);
+                    case BOARD:
+                        BotUtils.sendMessage(event.getChannel(), "It works!", "Permissions Test Successful!", event, true);
+
                     default:
                         BotUtils.sendMessage(event.getChannel(), "You don't have the right permissions!", "Error!", event, false);
                 }
