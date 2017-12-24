@@ -85,6 +85,21 @@ public class CommandHandler {
                 BotUtils.sendMessage(channel, serverInvite.getGuild().getName(), "Name", event, true);
             }
         }));
+
+        //BEGIN SECURITY COMMANDS
+
+            commandMap.put("sectest", (event, args) -> {
+                PermLevel userPerms = SecurityUtils.getUserPermLevel(event);
+
+                switch (userPerms) {
+                    case ADMIN:
+                        BotUtils.sendMessage(event.getChannel(), "It works!", "Permissions Test Successful!", event, true);
+                    default:
+                        BotUtils.sendMessage(event.getChannel(), "You don't have the right permissions!", "Error!", event, false);
+                }
+
+            });
+
            }
 
 

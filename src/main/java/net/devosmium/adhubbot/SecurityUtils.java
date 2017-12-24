@@ -6,7 +6,7 @@ import sx.blah.discord.handle.impl.events.guild.channel.message.MessageReceivedE
 
 import java.util.*;
 
-public class SecurityCommands {
+public class SecurityUtils {
 
     private static Map<String, Command> commandMap = new HashMap<>();
 
