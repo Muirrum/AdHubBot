@@ -13,6 +13,8 @@ import sx.blah.discord.util.DiscordException;
 import sx.blah.discord.util.EmbedBuilder;
 import sx.blah.discord.util.RequestBuffer;
 
+import java.util.Calendar;
+
 public class BotUtils {
     //TODO Implement Modlog and Advanced Permissions
     static String RECOG_NAME = "AdHub Bot";
@@ -44,7 +46,7 @@ public class BotUtils {
                 builder.withDesc(description);
                 builder.withDescription(description);
                 builder.withTitle(title);
-                builder.withTimestamp(100);
+                builder.withTimestamp(Calendar.MILLISECOND);
 
                 RequestBuffer.request(() -> event.getChannel().sendMessage(builder.build()));
             } catch (DiscordException e){
