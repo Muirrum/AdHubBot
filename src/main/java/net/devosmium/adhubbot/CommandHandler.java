@@ -79,14 +79,12 @@ public class CommandHandler {
                 BotUtils.sendMessage(event.getChannel(), "Please provide your invite code and only your invite code as the argument",
                         "Please fix your arguments", event, false);
             } else if (args.size() == 1) {
-                IDiscordClient client = new ClientBuilder().build();
-                IInvite serverInvite = client.getInviteForCode(args.get(0));
+
+                IInvite serverInvite = event.getClient().getInviteForCode(args.get(0));
                 IChannel channel = event.getChannel();
                 BotUtils.sendMessage(channel, serverInvite.getGuild().getName(), "Name", event, true);
             }
         }));
-
-        //BEGIN SECURITY COMMANDS
 
             commandMap.put("sectest", (event, args) -> {
                 PermLevel userPerms = SecurityUtils.getUserPermLevel(event);

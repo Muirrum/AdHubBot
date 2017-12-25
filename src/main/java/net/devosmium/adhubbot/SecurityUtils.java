@@ -11,20 +11,6 @@ public class SecurityUtils {
     private static Map<String, Command> commandMap = new HashMap<>();
 
 
-    static {
-        commandMap.put("sectest", (event, args) -> {
-            PermLevel userPerms = getUserPermLevel(event);
-
-            switch (userPerms) {
-                case ADMIN:
-                    BotUtils.sendMessage(event.getChannel(), "It works!", "Permissions Test Successful!", event, true);
-                default:
-                    BotUtils.sendMessage(event.getChannel(), "You don't have the right permissions!", "Error!", event, false);
-            }
-
-        });
-    }
-
     public static PermLevel getUserPermLevel(MessageReceivedEvent event) {
         PermLevel perms = null;
         if (event.getAuthor().getRolesForGuild(event.getGuild()).contains(event.getGuild().getRolesByName("DC | Moderators"))) {
