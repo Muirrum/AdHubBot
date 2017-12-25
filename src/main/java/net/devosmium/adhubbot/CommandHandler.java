@@ -82,7 +82,7 @@ public class CommandHandler {
 
                 IInvite serverInvite = event.getClient().getInviteForCode(args.get(0));
                 IChannel channel = event.getChannel();
-                BotUtils.sendMessage(channel, serverInvite.getGuild().getName(), "Name", event, true);
+                System.out.println(serverInvite.getGuild().getName());
             }
         }));
 
