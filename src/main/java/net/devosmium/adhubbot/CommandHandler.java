@@ -41,7 +41,7 @@ public class CommandHandler {
             }
         });
         commandMap.put("ban", (event, args) -> {
-           if (event.getAuthor().getPermissionsForGuild(event.getGuild()).contains(Permissions.BAN) || event.getAuthor().getStringID().equals("118455061222260736")) {
+           if (event.getAuthor().getPermissionsForGuild(event.getGuild()).contains(Permissions.BAN_MEMBERS) || event.getAuthor().getStringID().equals("118455061222260736")) {
               List<IUser> mentionArray = event.getMessage().getMentions();
 
               event.getGuild().banUser(mentionArray.get(0), args.toString());
@@ -60,7 +60,7 @@ public class CommandHandler {
            }
         });
         commandMap.put("unban", (event, args) -> {
-            if (event.getAuthor().getPermissionsForGuild(event.getGuild()).contains(Permissions.BAN) || event.getAuthor().getStringID().equals("118455061222260736")) {
+            if (event.getAuthor().getPermissionsForGuild(event.getGuild()).contains(Permissions.BAN_MEMBERS) || event.getAuthor().getStringID().equals("118455061222260736")) {
                 List<IUser> mentionArray = event.getMessage().getMentions();
                 event.getGuild().pardonUser(mentionArray.get(0).getLongID());
             }
