@@ -16,7 +16,7 @@ import sx.blah.discord.util.RequestBuffer;
 import java.util.Calendar;
 
 public class BotUtils {
-    //TODO Implement Modlog and Advanced Permissions
+    //TODO Implement Modlog
     static String RECOG_NAME = "AdHub Bot";
     static String PREFIX = "/";
     static String OWNER_RECOG_NAME = "Dr. Everett Mann";
